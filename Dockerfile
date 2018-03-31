@@ -1,7 +1,8 @@
-from openjdk:8u162-jdk
+FROM openjdk:8u162-jdk
 
+ARG SBT_VERSION
 ENV SCALA_VERSION 2.12.5
-ENV SBT_VERSION 1.1.1
+ENV SBT_VERSION ${SBT_VERSION:-1.1.1}
 
 RUN cat /etc/os-release && \
     curl -fL https://github.com/sbt/sbt/releases/download/v$SBT_VERSION/sbt-$SBT_VERSION.tgz | tar zxf - -C / && \
